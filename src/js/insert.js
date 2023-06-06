@@ -22,7 +22,6 @@ function getNames() {
   ];
   return names;
 }
-
 function getContainerElement() {
   const element = document.getElementById("cloud");
   return element;
@@ -33,6 +32,7 @@ let jugadores = [];
 
 // Función para agregar un jugador
 function agregarJugador() {
+  alert("agregando jugador");
   let nombreInput = document.getElementById('nombre');
   let nombre = nombreInput.value;
   

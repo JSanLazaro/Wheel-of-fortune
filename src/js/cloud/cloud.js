@@ -10,10 +10,10 @@ class NameCloud {
     self.actualIndex = 0;
     self.indexOfName = 0;
     self.timeToRoll = 5000;
-    self.createInnerCloud();    
+    self.createInnerCloudFromList();    
     // self.start();
   }
-  createInnerCloud() {
+  createInnerCloudFromList() {
     const self = this;   
 
     const elCloud = document.createElement("div");
@@ -88,63 +88,50 @@ class NameCloud {
     }   
       
   }
+  createNameListFromArray(miArray){
+    const self = this;
+    self.texts = miArray;
+  }
+  addNameListFromArray(miArray){
+    const self = this;
+    miArray.forEach((name)=>self.texts.push(name));
+  }
 
-  addName(name){
+  addNameList(name){
     this.texts.push(name);
   }
-  deleteByIndex(index){
+  deleteByIndexList(index){
     this.texts.splice(index,1);
   }
-  deleteName(name){
+  deleteNameList(name){
     const self = this;
     const index = self.texts.indexOf(name);
     self.texts.splice(index,1);
-
   }
   updateName(oldName, newName){
     const self = this;
     const index = self.texts.indexOf(oldName);
     self.texts[index] = newName;
+  } 
+  
+  getActualIndex(){
+    return this.actualIndex;
   }
-  update(){
-    this.resetCloud();
-    this.createInnerCloud();
+  eraseList(){
+    const self = this;
+    self.texts =[];
+  }
+  eraseCloud(){
+    const elCloud = document.getElementById("cloudNames");
+    elCloud.innerHTML = "";
+  }
+  refreshCloud(){
+    this.eraseCloud();
+    this.createInnerCloudFromList();
   }
   getRandomNumber(minimo,maximo){
     const aleatorio =  minimo + Math.random() * (maximo-minimo) ;
     return aleatorio;
   }
-  getActualIndex(){
-    return this.actualIndex;
-  }
-  resetCloud(){
-    const elCloud = document.getElementById("cloudNames");
-    elCloud.innerHTML = "";
-  }
-}
-createCloud();
-function createCloud() {
-  const textNames = getNames();
-  const cloudContainer = getContainerElement();
-  const namesCloud = new NameCloud(cloudContainer, textNames);
-  // setInterval(function(){console.log("set interval")}, 500);
-}
-function getNames() {
-  const names = [
-    "Juan",
-    "Carlos",
-    "Miguel",
-    "Jesus",
-    "Pedro",
-    "Michael",
-    "Pablo",
-    "Mateo",
-    "Santi",
-  ];
-  return names;
 }
 
-function getContainerElement() {
-  const element = document.getElementById("cloud");
-  return element;
-}
