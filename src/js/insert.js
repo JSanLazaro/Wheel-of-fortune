@@ -1,8 +1,29 @@
 const modal = document.querySelector("#modal_window");
 const btnModalOpen = document.querySelector("#btn_modal_open");
-btnModalOpen.addEventListener("click", ()=>modal.showModal());
+btnModalOpen.addEventListener("click", () => modal.showModal());
 const btnModalClose = document.querySelector("#btn_modal_close");
-btnModalClose.addEventListener("click", ()=>modal.close());
+btnModalClose.addEventListener("click", () => modal.close());
+const modalWinner = document.querySelector("#modal_winner");
+const btnModalWinner = document.querySelector("#winner_button");
+btnModalWinner.addEventListener("click", () => {
+   
+  if (cloudObject.texts.length==1){
+    winnerInject(); 
+    modalWinner.showModal();
+  }
+   
+});
+
+const btnModalwinnerClose = document.querySelector(
+  "#modal_winner__close_button"
+);
+btnModalwinnerClose.addEventListener("click", () => modalWinner.close());
+function winnerInject() {
+  const modalWinnerMessage = document.getElementById("modal_winner__message");
+  const winnerName = document.createElement("span");
+  winnerName.innerText = " "+cloudObject.getActualName();
+  modalWinnerMessage.append(winnerName);
+}
 
 const textNames = [];
 const cloudContainer = getContainerElement();
@@ -20,7 +41,7 @@ function getNames() {
     "Mateo",
     "Felipe",
     "Simon",
-    "Tomas"
+    "Tomas",
   ];
   return names;
 }
@@ -29,16 +50,15 @@ function getContainerElement() {
   return element;
 }
 const startButton = document.getElementById("start_button");
-startButton.addEventListener("click", ()=>{
-  cloudObject.start();  
+startButton.addEventListener("click", () => {
+  cloudObject.start();
 });
 const whoButton = document.getElementById("who_button");
-whoButton.addEventListener("click", ()=>{
+whoButton.addEventListener("click", () => {
   alert(cloudObject.getActualName());
   cloudObject.eraseActualIndexFromList();
   cloudObject.refreshCloud();
 });
-
 
 // Array para almacenar la lista de jugadores
 let jugadores = [];
@@ -46,25 +66,25 @@ let jugadores = [];
 // Función para agregar un jugador
 function agregarJugador() {
   alert("agregando jugador");
-  let nombreInput = document.getElementById('nombre');
+  let nombreInput = document.getElementById("nombre");
   let nombre = nombreInput.value;
-  
+
   // Verificar si el nombre no está vacío
-  if (nombre !== '') {
+  if (nombre !== "") {
     // Crear objeto jugador
     let jugador = {
-      nombre: nombre
+      nombre: nombre,
     };
-    
+
     // Agregar el jugador al array
     jugadores.push(jugador);
-    
+
     cloudObject.addNameList(nombre);
-    cloudObject.refreshCloud();    
-    
+    cloudObject.refreshCloud();
+
     // Limpiar el campo de nombre
-    nombreInput.value = '';
-    
+    nombreInput.value = "";
+
     // Actualizar la lista de jugadores
     actualizarListaJugadores();
   }
@@ -74,20 +94,20 @@ function agregarJugador() {
 function eliminarJugador(index) {
   // Eliminar el jugador del array
   jugadores.splice(index, 1);
-  
+
   // Actualizar la lista de jugadores
   actualizarListaJugadores();
 }
 
 // Función para editar un jugador
 function editarJugador(index) {
-  let nuevoNombre = prompt('Ingrese el nuevo nombre del jugador:');
-  
+  let nuevoNombre = prompt("Ingrese el nuevo nombre del jugador:");
+
   // Verificar si se ingresó un nuevo nombre
-  if (nuevoNombre !== null && nuevoNombre !== '') {
+  if (nuevoNombre !== null && nuevoNombre !== "") {
     // Actualizar el nombre del jugador en el array
     jugadores[index].nombre = nuevoNombre;
-    
+
     // Actualizar la lista de jugadores
     actualizarListaJugadores();
   }
@@ -95,18 +115,24 @@ function editarJugador(index) {
 
 // Función para actualizar la lista de jugadores en el HTML
 function actualizarListaJugadores() {
-  let listaJugadores = document.getElementById('lista-jugadores');
-  listaJugadores.innerHTML = '';
-  
+  let listaJugadores = document.getElementById("lista-jugadores");
+  listaJugadores.innerHTML = "";
+
   // Recorrer el array de jugadores y crear elementos de lista para cada uno
   for (let i = 0; i < jugadores.length; i++) {
     let jugador = jugadores[i];
-    
-    let itemLista = document.createElement('div');
-    itemLista.innerHTML = jugador.nombre + ' ' +
-      '<button onclick="eliminarJugador(' + i + ')">Eliminar</button>' +
-      '<button onclick="editarJugador(' + i + ')">Editar</button>';
-    
+
+    let itemLista = document.createElement("div");
+    itemLista.innerHTML =
+      jugador.nombre +
+      " " +
+      '<button onclick="eliminarJugador(' +
+      i +
+      ')">Eliminar</button>' +
+      '<button onclick="editarJugador(' +
+      i +
+      ')">Editar</button>';
+
     listaJugadores.appendChild(itemLista);
   }
 }
