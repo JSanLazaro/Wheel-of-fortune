@@ -16,7 +16,8 @@
     <h1 class="title">PAginas Amarillas</h1>
   </header>
   <main>
-    <section id="section_cloud">
+    <div class="container">
+      <section id="section_cloud">
       <div id="cloud">
         <!-- <div class="cloudEl">
                     <span class="itemEl"></span>
@@ -24,8 +25,9 @@
       </div>
 
     </section>
-    <button id="btn_modal_open">Lista jugadores</button>
-    <form id="formulario">
+    <section id="section_pannel">
+      <button id="start_button"><p>Start</p></button>
+      <form id="formulario">
       <div class="n1">
         <label for="nombre"></label>
         <input class="name" type="text" id="nombre" required placeholder="Nombre Del Jugador Aquí">
@@ -33,7 +35,13 @@
       <div class="u1">
         <button class=update type="button" onclick="agregarJugador()">Añadir</button>
       </div>
-    </form>
+    </form>    
+    <button id="btn_modal_open">Lista jugadores</button>
+    </section>
+    </div>
+    
+    
+    
     <dialog id="modal_window">
 
       <ul id="lista-jugadores"></ul>
@@ -55,9 +63,8 @@
     <button id="modal_winner__close_button"><b>Close</b></button>
     </dialog>
 
-    <button id="start_button"><p>Start</p></button>
-    <button id="who_button"><b>Mostrar eliminado</b></button>
-    <button id="winner_button">Mostrar ganador</button>
+    
+    
   </main>
   <footer class="footer">
     <button id="button">Instrucciones de uso</button>
