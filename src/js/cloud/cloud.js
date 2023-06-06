@@ -10,10 +10,12 @@ class NameCloud {
     self.actualIndex = 0;
     self.indexOfName = 0;
     self.timeToRoll = 5000;
+    self.isFinish = false;
     self.createInnerCloudFromList();    
     // self.start();
   }
   createInnerCloudFromList() {
+     
     const self = this;   
 
     const elCloud = document.createElement("div");
@@ -67,8 +69,7 @@ class NameCloud {
     self = this;
     // alert("start");
     const cloudNames = document.getElementById("cloudNames");    
-    this.rolling(this.getRandomNumber(3000,6000));
-     
+    this.rolling(this.getRandomNumber(3000,6000));    
   }
   rolling (time) { 
     // alert("rolling");    
@@ -85,8 +86,7 @@ class NameCloud {
     time-=100;
     if(time>0){
       setTimeout(()=> this.rolling(time), 100);  
-    }   
-      
+    }        
   }
   createNameListFromArray(miArray){
     const self = this;
@@ -100,6 +100,9 @@ class NameCloud {
   addNameList(name){
     this.texts.push(name);
   }
+  getNameListByIndex(index){
+    return this.texts[index];
+  }
   deleteByIndexList(index){
     this.texts.splice(index,1);
   }
@@ -107,6 +110,9 @@ class NameCloud {
     const self = this;
     const index = self.texts.indexOf(name);
     self.texts.splice(index,1);
+  }
+  eraseActualIndexFromList(){
+    this.texts.splice(this.actualIndex,1); 
   }
   updateName(oldName, newName){
     const self = this;
@@ -117,12 +123,15 @@ class NameCloud {
   getActualIndex(){
     return this.actualIndex;
   }
+  getActualName(){
+    return this.texts[this.getActualIndex()];
+  }
   eraseList(){
     const self = this;
     self.texts =[];
   }
   eraseCloud(){
-    const elCloud = document.getElementById("cloudNames");
+    const elCloud = document.getElementById("cloud");
     elCloud.innerHTML = "";
   }
   refreshCloud(){
@@ -132,6 +141,9 @@ class NameCloud {
   getRandomNumber(minimo,maximo){
     const aleatorio =  minimo + Math.random() * (maximo-minimo) ;
     return aleatorio;
+  }
+  getList(){
+    return this.texts;
   }
 }
 

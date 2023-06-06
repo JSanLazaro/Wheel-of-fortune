@@ -4,21 +4,23 @@ btnModalOpen.addEventListener("click", ()=>modal.showModal());
 const btnModalClose = document.querySelector("#btn_modal_close");
 btnModalClose.addEventListener("click", ()=>modal.close());
 
-const textNames = getNames();
+const textNames = [];
 const cloudContainer = getContainerElement();
 const cloudObject = new NameCloud(cloudContainer, textNames);
 
 function getNames() {
   const names = [
     "Juan",
-    "Carlos",
-    "Miguel",
-    "Jesus",
     "Pedro",
-    "Michael",
-    "Pablo",
+    "Santiago",
+    "Jesus",
+    "Andres",
+    "Bartolome",
+    "Judas",
     "Mateo",
-    "Santi",
+    "Felipe",
+    "Simon",
+    "Tomas"
   ];
   return names;
 }
@@ -26,7 +28,18 @@ function getContainerElement() {
   const element = document.getElementById("cloud");
   return element;
 }
-cloudObject.start();
+const startButton = document.getElementById("start_button");
+startButton.addEventListener("click", ()=>{
+  cloudObject.start();  
+});
+const whoButton = document.getElementById("who_button");
+whoButton.addEventListener("click", ()=>{
+  alert(cloudObject.getActualName());
+  cloudObject.eraseActualIndexFromList();
+  cloudObject.refreshCloud();
+});
+
+
 // Array para almacenar la lista de jugadores
 let jugadores = [];
 
@@ -45,6 +58,9 @@ function agregarJugador() {
     
     // Agregar el jugador al array
     jugadores.push(jugador);
+    
+    cloudObject.addNameList(nombre);
+    cloudObject.refreshCloud();    
     
     // Limpiar el campo de nombre
     nombreInput.value = '';
