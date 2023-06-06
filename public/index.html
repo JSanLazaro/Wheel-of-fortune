@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../src/css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../src/css/stylesm.css">
+  <link rel="stylesheet" href="../src/css/styles.css">
+  
 </head>
+
 <body>
-    <head>
-        <div class="title">
-            <h1>WHEEL OF BEACH</h1>
-        </div>
-    </head>
-    <main>
-        <section id="section_cloud">
-            <div id="cloud">
-                <!-- <div class="cloudEl">
+  <header class="header">
+    <h1 class="title">PAginas Amarillas</h1>
+  </header>
+  <main>
+    <section id="section_cloud">
+      <div id="cloud">
+        <!-- <div class="cloudEl">
                     <span class="itemEl"></span>
                 </div> -->
-            </div>
-        </section>
-    </main>
-    <footer>
-        
-    </footer>
-    <script src="../src/js/cloud/cloud.js"></script>
+      </div>
+
+    </section>
+    <button id="btn_modal_open">Lista jugadores</button>
+    <form id="formulario">
+      <div class="n1">
+        <label for="nombre"></label>
+        <input class="name" type="text" id="nombre" required placeholder="Nombre Del Jugador Aquí">
+      </div>
+      <div class="u1">
+        <button class=update type="button" onclick="agregarJugador()">Añadir</button>
+      </div>
+    </form>
+    <dialog id="modal_window">
+
+      <ul id="lista-jugadores"></ul>
+      <button id="btn_modal_close">close loupe modal</button>
+    </dialog>
+    <div id="rectangle" class="hidden">
+      <h3 id="recinicio">Primero de todo te damos la bienvenida a la playa de la fortuna!</h3>
+      <h4 id="Idu">Instrucciones de uso</h4>
+      <p>
+        - Para agregar los nombres a la nube dale al boton de "Agregar Participantes"<br>
+        - Se te desplegara un menu que te permitira tanto editar, agregar como eliminar participantes.<br>
+        - Una vez estes conforme con la lista de participantes le das a "Comenzar"<br>
+      </p>
+
+
+      </p>
+    </div>
+    <button id="start_button">Start</button>
+    <button id="who_button">Mostrar eliminado</button>
+    <button id="winner_button">Mostrar ganador</button>
+  </main>
+  <footer class="footer">
+    <button id="button">Instrucciones de uso</button>
+  </footer>  
+  <script src="../src/js/readusem.js"></script>
+  <script src="../src/js/cloud/cloud.js"></script>
+  <script src="../src/js/insert.js"></script>
 </body>
+
 </html>
