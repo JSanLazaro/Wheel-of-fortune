@@ -8,7 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="../src/css/stylesm.css">
   <link rel="stylesheet" href="../src/css/styles.css">
-  
+
 </head>
 
 <body>
@@ -18,31 +18,35 @@
   <main>
     <div class="container">
       <section id="section_cloud">
-      <div id="cloud">
-        <!-- <div class="cloudEl">
+        <div id="cloud">
+          <!-- <div class="cloudEl">
                     <span class="itemEl"></span>
                 </div> -->
-      </div>
+        </div>
 
-    </section>
-    <section id="section_pannel">
-      <a id="start_button" class="start_buton"><h3><b>EMPEZAR</b></h3></a>
-    <a id="reset_button" class="reset_buton"><h3><b>REINICIAR</b></h3></a>
-      <form id="formulario">
-      <div class="n1">
-        <label for="nombre"></label>
-        <input class="name" type="text" id="nombre" required placeholder="Nombre Del Jugador Aquí">
-      </div>
-      <div class="u1">
-        <button class=update type="button" onclick="agregarJugador()">Añadir</button>
-      </div>
-    </form>    
-    <button id="btn_modal_open">Lista jugadores</button>
-    </section>
+      </section>
+      <section id="section_pannel">
+        <a id="start_button" class="start_buton">
+          <h3><b>EMPEZAR</b></h3>
+        </a>
+        <a id="reset_button" class="reset_buton">
+          <h3><b>REINICIAR</b></h3>
+        </a>
+        <form id="formulario">
+          <div class="n1">
+            <label for="nombre"></label>
+            <input class="name" type="text" id="nombre" required placeholder="Nombre Del Jugador Aquí">
+          </div>
+          <div class="u1">
+            <button class=update type="button" onclick="agregarJugador()">Añadir</button>
+          </div>
+        </form>
+        <button id="btn_modal_open">Lista jugadores</button>
+      </section>
     </div>
-    
-    
-    
+
+
+
     <dialog id="modal_window">
 
       <ul id="lista-jugadores"></ul>
@@ -60,19 +64,51 @@
 
       </p>
     </div>
-    <dialog id="modal_winner"><p id="modal_winner__message"></p>
-    <button id="modal_winner__close_button"><b>Close</b></button>
+
+
+
+
+
+
+    <dialog id="modal_winner">
+      <p id="modal_winner__message"></p>
+      <button id="modal_winner__close_button"><b>Close</b></button>
     </dialog>
 
     
-    
+
+
+
+
+
+
+
+
+
+
+    <dialog id="modal_eliminated">
+      <div class="popup" id="popup">
+        <h1>¡Te ha tocado la pelota, estás eliminado!</h1>
+        <p id="modal_eliminated__message"></p>
+        <button id="modal_eliminated__close_button">Aceptar</button>
+      </div>
+    </dialog>
+
+
+
+
+
+
+
+
   </main>
   <footer class="footer">
     <button id="button">Instrucciones de uso</button>
-  </footer>  
+  </footer>
   <script src="../src/js/readusem.js"></script>
   <script src="../src/js/cloud/cloud.js"></script>
   <script src="../src/js/insert.js"></script>
+  <script src="/src/js/alert.js"></script>
 </body>
 
 </html>

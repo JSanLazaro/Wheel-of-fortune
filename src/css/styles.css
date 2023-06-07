@@ -3,6 +3,7 @@
 @import './background.css';
 @import './insert.css';
 @import './start_button.css';
+@import './alert.css';
 .container{
     display: flex;
     flex-direction: row;
