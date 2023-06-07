@@ -13,3 +13,12 @@
   height: 300px;
   width: 650px; 
 }
+.delete{
+  background: transparent;
+  border: none;
+}
+.accept{
+text-align: right;
+margin-right: 4%;
+margin-top: 7.5%;
+}
