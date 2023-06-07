@@ -1,18 +1,15 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="/src/css/alert.css" />
-    <script src="/src/js/alert.js"></script>
-    <title>Alert Personalizado</title>
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" href="/src/css/alert.css">
+  <title>Pop-up</title>
+</head>
+<body>
+  <button id="popupButton">Haz clic aquí</button>
 
-    <h2>Popup</h2>
-
-    <div class="popup" onclick="myFunction()">
-      Click me
-      <span class="popuptext" id="myPopup"
-        >Te ha tocado la pelota estas Eliminado</span>
-    </div>
-  </body>
+  <div class="popup" id="popup">
+    <h1>¡Te ha tocado la pelota, estás eliminado!</h1>
+    <button id="acceptButton">Aceptar</button>
+  </div>
+  <script src="/src/js/alert.js"></script>
+</body>
 </html>

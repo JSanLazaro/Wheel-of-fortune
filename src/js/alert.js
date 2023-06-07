@@ -1,13 +1,14 @@
-//    function mostrar(){
 
-//   swal({
-//    text: 'TE HA TOCADO LA PELOTA ESTÁS ELIMINADO:',   icon: 'error',  
-// //   } );
+let button = document.getElementById('popupButton');
+let popup = document.getElementById('popup');
+let acceptButton = document.getElementById('acceptButton');
 
-//  }
-// When the user clicks on div, open the popup
-  function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-                            }
+// Mostrar el pop-up cuando se hace clic en el botón
+button.addEventListener('click', function() {
+  popup.style.display = 'block';
+});
 
+// Cerrar el pop-up cuando se hace clic en el botón "Aceptar"
+acceptButton.addEventListener('click', function() {
+  popup.style.display = 'none';
+});
