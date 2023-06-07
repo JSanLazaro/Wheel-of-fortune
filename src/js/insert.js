@@ -158,3 +158,11 @@ document.getElementById("nombre")
         agregarJugador();
     }
 });
+document.getElementById("reset_button").addEventListener("click",
+function(event){
+  cloudObject.deleteList();
+  cloudObject.refreshCloud();
+  actualizarListaJugadores();
+}
+
+);
