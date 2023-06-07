@@ -13,24 +13,23 @@
   height: 300px;
   width: 650px; 
 }
+.delete{
+  background: transparent;
+  border: none;
+}
+.accept{
+text-align: right;
+margin-right: 4%;
+margin-top: 7.5%;
 
-
-
-
-
-
-
-
-
-
-
-.popup_eliminated {
+}
+.popup_winner {
   /* position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff; */
-  background-image: url("/src/images/alerts/copa.jpg");
+  background-image: url("/src/images/alerts/copalaurel.png");
   /* padding: 20px;
   border: 1px solid #000000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
