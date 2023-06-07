@@ -65,13 +65,15 @@ class NameCloud {
       z: 0,
     };
   }
-  start(){
+  start(funcion){
     self = this;
+    this.isFinish = false;
     // alert("start");
-    const cloudNames = document.getElementById("cloudNames");    
-    this.rolling(this.getRandomNumber(3000,6000));    
+    const cloudNames = document.getElementById("cloudNames"); 
+    this.timeToRoll = this.getRandomNumber(3000,4000);  
+    this.rolling(this.timeToRoll,funcion);       
   }
-  rolling (time) { 
+  rolling (time,funcion) { 
     // alert("rolling");    
     const long = this.texts.length;       
 
@@ -81,12 +83,17 @@ class NameCloud {
     // oldElement.style.backgroundColor = "blue"; 
 
     this.actualIndex = Math.floor(Math.random()*long); 
-    const actualElement = document.getElementById("NAME" + this.actualIndex);    
+    const actualElement = document.getElementById("NAME" + this.actualIndex); 
+    actualElement.style.transition = "font-size 50ms ease";   
     actualElement.style.fontSize = "50px";
     time-=100;
     if(time>0){
-      setTimeout(()=> this.rolling(time), 100);  
-    }        
+      setTimeout(()=> this.rolling(time,funcion), 50);  
+    }else{
+      // alert("finish");
+      this.isFinish = true;      
+      setTimeout(()=>funcion(),200);
+    }            
   }
   createNameListFromArray(miArray){
     const self = this;
@@ -110,6 +117,9 @@ class NameCloud {
     const self = this;
     const index = self.texts.indexOf(name);
     self.texts.splice(index,1);
+  }
+  deleteList(){
+    this.texts = [];
   }
   eraseActualIndexFromList(){
     this.texts.splice(this.actualIndex,1); 
@@ -144,6 +154,9 @@ class NameCloud {
   }
   getList(){
     return this.texts;
+  }
+  contain(nombre){
+    return this.texts.includes(nombre);
   }
 }
 

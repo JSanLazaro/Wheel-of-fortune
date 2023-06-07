@@ -23,11 +23,11 @@ body {
 .footer {
   text-align: center;
   padding: 20px;
-  /* position: fixed; */
+  position: fixed;
   left: 0px;
-  bottom: 0px;
+  bottom: 0;
   background-color: aquamarine;
-  width: 100%;
+  width: 95%;
 }
 
 #button {

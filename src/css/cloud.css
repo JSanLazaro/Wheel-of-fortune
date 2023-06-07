@@ -3,26 +3,24 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-
-
     align-items: flex-start;
     align-content: stretch;
-
     width: 70%;
     height: 500px;
     /* border: 10px solid black; */
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     /* background-color: bisque; */
 }
 
 #cloud {
     /* border: 5px solid blue;  */
+    width: 100%;
 
     background-image: url("../images/cloud/nube.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     flex: 1;
     /* position: fixed; */
     /* display: block; */
@@ -47,7 +45,7 @@
 
 .itemEl {
     position: absolute;
-    text-align: center;
+    text-justify: center;
     /* border: 2px solid red; */
 
 }
