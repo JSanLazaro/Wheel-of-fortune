@@ -7,15 +7,27 @@ btnModalClose.addEventListener("click", () => modal.close());
 const modalWinner = document.querySelector("#modal_winner");
 const btnModalWinner = document.querySelector("#winner_button");
 
-
-const btnModalwinnerClose = document.querySelector("#modal_winner__close_button");
+const btnModalwinnerClose = document.querySelector(
+  "#modal_winner__close_button"
+);
 btnModalwinnerClose.addEventListener("click", () => modalWinner.close());
 function winnerInject(name) {
   const modalWinnerMessage = document.getElementById("modal_winner__message");
   modalWinnerMessage.innerHTML = "<b>EL GANADOR ES</b>";
   const winnerName = document.createElement("span");
-  winnerName.innerText = " "+ name;
+  winnerName.innerText = " " + name;
   modalWinnerMessage.append(winnerName);
+}
+function eliminatedInject(name) {
+  const modalEliminatedMessage = document.getElementById(
+    "modal_eliminated__message"
+  );
+  modalEliminatedMessage.innerHTML = "<b>EL ELIMINADO ES</b>";
+  const spanObject = modalEliminatedMessage.firstChild;
+  modalEliminatedMessage.removeChild(spanObject);
+  const winnerName = document.createElement("span");
+  winnerName.innerText = " " + name;
+  modalEliminatedMessage.append(winnerName);
 }
 
 const textNames = [];
@@ -44,18 +56,20 @@ function getContainerElement() {
 }
 const startButton = document.getElementById("start_button");
 startButton.addEventListener("click", () => {
-  cloudObject.start(callbackFunction);  
+  cloudObject.start(callbackFunction);
 });
-function callbackFunction(){
-  if(cloudObject.texts.length>1){
-    alert(cloudObject.getActualName());
-  eliminarJugador(cloudObject.actualIndex);
+function callbackFunction() {
+  if (cloudObject.texts.length > 1) {
+    eliminatedInject(cloudObject.getActualName());
+    const modalEliminated = document.querySelector("#modal_eliminated");
+    modalEliminated.showModal();
+    // alert(cloudObject.getActualName());
+    eliminarJugador(cloudObject.actualIndex);
   }
-  if(cloudObject.texts.length==1){
-    winnerInject(cloudObject.texts[0]); 
+  if (cloudObject.texts.length == 1) {
+    winnerInject(cloudObject.texts[0]);
     modalWinner.showModal();
   }
-  
 }
 // const whoButton = document.getElementById("who_button");
 // whoButton.addEventListener("click", () => {
@@ -85,7 +99,6 @@ function agregarJugador() {
     // jugadores.push(jugador);
 
     cloudObject.addNameList(nombre);
-    
 
     // Limpiar el campo de nombre
     nombreInput.value = "";
@@ -94,7 +107,6 @@ function agregarJugador() {
     // Actualizar la lista de jugadores
     cloudObject.refreshCloud();
     actualizarListaJugadores();
-    
   }
 }
 
@@ -103,7 +115,6 @@ function eliminarJugador(index) {
   // Eliminar el jugador del array
   // jugadores.splice(index, 1);
   cloudObject.deleteByIndexList(index);
-  
 
   // Actualizar la lista de jugadores
   cloudObject.refreshCloud();
@@ -150,11 +161,17 @@ function actualizarListaJugadores() {
   }
 }
 
-document.getElementById("nombre")
-    .addEventListener("keydown", function(event) {
-    // event.preventDefault();
-    if (event.keyCode === 13) {
-      // alert("enter pressed");
-        agregarJugador();
-    }
+document.getElementById("nombre").addEventListener("keydown", function (event) {
+  // event.preventDefault();
+  if (event.keyCode === 13) {
+    // alert("enter pressed");
+    agregarJugador();
+  }
 });
+document
+  .getElementById("reset_button")
+  .addEventListener("click", function (event) {
+    cloudObject.deleteList();
+    cloudObject.refreshCloud();
+    actualizarListaJugadores();
+  });

@@ -118,6 +118,9 @@ class NameCloud {
     const index = self.texts.indexOf(name);
     self.texts.splice(index,1);
   }
+  deleteList(){
+    this.texts = [];
+  }
   eraseActualIndexFromList(){
     this.texts.splice(this.actualIndex,1); 
   }
