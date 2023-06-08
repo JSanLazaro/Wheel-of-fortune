@@ -1,3 +1,4 @@
+import { NameCloud } from "./cloud/cloud.js";
 const modal = document.querySelector("#modal_window");
 const btnModalOpen = document.querySelector("#btn_modal_open");
 btnModalOpen.addEventListener("click", () => modal.showModal());
@@ -34,22 +35,6 @@ const textNames = [];
 const cloudContainer = getContainerElement();
 const cloudObject = new NameCloud(cloudContainer, textNames);
 
-function getNames() {
-  const names = [
-    "Juan",
-    "Pedro",
-    "Santiago",
-    "Jesus",
-    "Andres",
-    "Bartolome",
-    "Judas",
-    "Mateo",
-    "Felipe",
-    "Simon",
-    "Tomas",
-  ];
-  return names;
-}
 function getContainerElement() {
   const element = document.getElementById("cloud");
   return element;
@@ -83,7 +68,7 @@ function callbackFunction() {
 // let jugadores = [];
 
 // Función para agregar un jugador
-function agregarJugador() {
+export function agregarJugador() {
   // alert("agregando jugador");
   let nombreInput = document.getElementById("nombre");
   let nombre = nombreInput.value;
@@ -122,7 +107,7 @@ function eliminarJugador(index) {
 }
 
 // Función para editar un jugador
-function editarJugador(index) {
+export function editarJugador(index) {
   let nuevoNombre = prompt("Ingrese el nuevo nombre del jugador:");
 
   // Verificar si se ingresó un nuevo nombre
@@ -138,7 +123,7 @@ function editarJugador(index) {
 }
 
 // Función para actualizar la lista de jugadores en el HTML
-function actualizarListaJugadores() {
+export function actualizarListaJugadores() {
   let listaJugadores = document.getElementById("lista-jugadores");
   listaJugadores.innerHTML = "";
 
@@ -161,17 +146,4 @@ function actualizarListaJugadores() {
   }
 }
 
-document.getElementById("nombre").addEventListener("keydown", function (event) {
-  // event.preventDefault();
-  if (event.keyCode === 13) {
-    // alert("enter pressed");
-    agregarJugador();
-  }
-});
-document
-  .getElementById("reset_button")
-  .addEventListener("click", function (event) {
-    cloudObject.deleteList();
-    cloudObject.refreshCloud();
-    actualizarListaJugadores();
-  });
+

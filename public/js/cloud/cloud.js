@@ -1,5 +1,4 @@
-// alert("fichero cloud.js");
-class NameCloud {
+export class NameCloud {
 
   constructor(container, texts) {
     // alert("dentro del constructor");
@@ -75,19 +74,23 @@ class NameCloud {
   }
   rolling (time,funcion) { 
     // alert("rolling");    
-    const long = this.texts.length;       
+    const long = this.texts.length;  
 
-    this.oldIndex = this.actualIndex;  
-    const oldElement = document.getElementById("NAME" + this.oldIndex);     
-    oldElement.style.fontSize = "16px";
+    const oldElement = document.getElementById("NAME" + this.oldIndex); 
+    if(oldElement){
+      oldElement.style.fontSize = "16px";
+    }   
+    
     // oldElement.style.backgroundColor = "blue"; 
-
+    
     this.actualIndex = Math.floor(Math.random()*long); 
     const actualElement = document.getElementById("NAME" + this.actualIndex); 
     actualElement.style.transition = "font-size 50ms ease";   
     actualElement.style.fontSize = "50px";
     time-=100;
     if(time>0){
+      this.oldIndex = this.actualIndex; 
+       
       setTimeout(()=> this.rolling(time,funcion), 50);  
     }else{
       // alert("finish");
