@@ -1,3 +1,4 @@
+import { NameCloud } from "./cloud/cloud";
 const modal = document.querySelector("#modal_window");
 const btnModalOpen = document.querySelector("#btn_modal_open");
 btnModalOpen.addEventListener("click", () => modal.showModal());

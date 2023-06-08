@@ -1,5 +1,4 @@
-// alert("fichero cloud.js");
-class NameCloud {
+export class NameCloud {
 
   constructor(container, texts) {
     // alert("dentro del constructor");
