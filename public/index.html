@@ -13,7 +13,8 @@
 
 <body>
   <header class="header">
-    <h1 class="title">Wheel of Beach</h1>
+    <h1 class="title"><b>WHEEL OF BEACH</b></h1>
+
   </header>
   <main>
     <div class="container">
@@ -70,12 +71,20 @@
 
 
 
-    <dialog id="modal_winner">
-      <p id="modal_winner__message"></p>
-      <button id="modal_winner__close_button"><b>Close</b></button>
+    <dialog id="modal_winner" class="delete">
+
+      <div id="popup_winner" class="popup">
+        <h1>
+          ¡¡¡ERES EL GANADOR!!!
+        </h1>
+        <p id="modal_winner__message"></p>
+        <div class="accept">
+          <button id="modal_winner__close_button"><b>Close</b></button>
+        </div>
+        
+      </div>
     </dialog>
 
-    
 
 
 
@@ -86,11 +95,14 @@
 
 
 
-    <dialog id="modal_eliminated">
+
+    <dialog class="delete" id="modal_eliminated">
       <div class="popup" id="popup">
         <h1>¡Te ha tocado la pelota, estás eliminado!</h1>
         <p id="modal_eliminated__message"></p>
-        <button id="modal_eliminated__close_button">Aceptar</button>
+       <div class="accept">
+        <button  id="modal_eliminated__close_button">Aceptar</button>
+      </div>
       </div>
     </dialog>
 

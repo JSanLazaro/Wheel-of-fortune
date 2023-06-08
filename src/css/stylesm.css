@@ -12,8 +12,12 @@ body {
 }
 
 .title {
-  font-size: 24px;
+  font-size: 80px;
   font-weight: 600;
+  font-family: impact;
+  color: white;
+  /* text-shadow: -6px -6px 6px rgb(0, 35, 231); */
+  text-shadow: -3px -3px 3px red, 3px -3px 3px red, -3px 3px 3px
 }
 
 .footer {
