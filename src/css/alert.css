@@ -2,9 +2,14 @@
   /* position: fixed;
   
   
+<<<<<<< HEAD
   background-color: #ffffff; */
   /* top: 50%;
   left: 50%;
+=======
+  /* background-color: #ffffff; */
+  /* left: 50%;
+>>>>>>> 09e76e0b55f458246a21eeead91f0816992c0fd0
   transform: translate(-50%, -50%);
    padding: 20px;
   border: 1px solid #000000;
