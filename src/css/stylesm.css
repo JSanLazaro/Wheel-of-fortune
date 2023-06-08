@@ -22,12 +22,12 @@ body {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  padding: 2px;
   position: fixed;
   left: 0px;
   bottom: 0;
   background-color: aquamarine;
-  width: 95%;
+  width: 100%;
 }
 
 #button {
