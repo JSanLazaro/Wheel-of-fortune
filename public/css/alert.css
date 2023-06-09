@@ -12,22 +12,21 @@
   /*z-index: 9999;
   display: none;*/
   height: 300px;
-  width: 650px; 
+  width: 650px;
 }
-#popup{
-  background-image: url("/src/images/alerts/eliminated.png");
+#popup {
+  background-image: url("../images/alerts/eliminated.png");
 }
-.delete{
+.delete {
   background: transparent;
   border: none;
 }
-.accept{
-text-align: right;
-margin-right: 4%;
-margin-top: 7.5%;
-
+.accept {
+  text-align: right;
+  margin-right: 4%;
+  margin-top: 7.5%;
 }
-#popup_winner {  
-  background-image: url("/src/images/alerts/copalaurel.png");
-  background-size: cover;    
+#popup_winner {
+  background-image: url("../images/alerts/copalaurel.png");
+  background-size: cover;
 }
